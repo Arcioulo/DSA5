@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 5</title>
+</head>
+<body>
+
+<h1>O(n^2) Sorting Options</h1>
+<p>Bubble Sort || Selection Sort || Insertion Sort</p>
+
+<div>
+    <p>Amount to Sort</p>
+    <form name = "On2_amount" action = "/start_On2">
+        <select name = "amount">
+        <option value = "1000">1000</option>
+        <option value = "10000">10000</option>
+        <option value = "100000">100000</option>
+        </select>
+        <input type = "hidden" name="round" value = 0>
+        <input type = "hidden" name="bubble_total" value = 0>
+        <input type = "hidden" name="selection_total" value = 0>
+        <input type = "hidden" name="insertion_total" value = 0>
+
+        <input type = "submit" name = "On2_start" value = "Start">
+    </form>
+</div>
+<br>
+<a href = "/home_Onlogn">Race O(nlogn)</a>
+
+
+
+</body>
+</html>

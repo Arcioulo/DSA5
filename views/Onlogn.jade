@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    h Scores after round #{round}
+    p merge Sort: #{merge_score}
+    p Quick Sort (front pivot): #{quickfront_score}
+    p Quick Sort (middle pivot): #{quickmid_score}
+
+    h Times for previous round (in ms)
+    p merge Sort: #{merge_time}
+    p Quick Sort (front pivot): #{quickfront_time}
+    p Quick Sort (middle pivot): #{quickmid_time}
+
+    form(name="next", action="/start_Onlogn", method="get")
+        input(type = "hidden", value = merge_score, name = "merge_total")
+        input(type = "hidden", value = quickfront_score, name = "quickfront_total")
+        input(type = "hidden", value = quickmid_score, name = "quickmid_total")
+        input(type = "hidden", value = amount, name = "amount")
+        input(type = "hidden", value = round, name="round")
+
+        input(type="submit", value="Next")
+
+    form(name="stop", action="/", method="get")
+        input(type="submit", value="Stop")
+
+    button(onclick='Reset()') Reset
+
+    script.
+        var Reset = function() {
+            location.reload();
+        }
+
+
+
+
+
+
+
+

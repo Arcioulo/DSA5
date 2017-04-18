@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  h Scores after round #{round}
+  p Bubble Sort: #{bubble_score}
+  p Insertion Sort: #{insertion_score}
+  p Selection Sort: #{selection_score}
+
+  h Times for previous round (in ms)
+  p Bubble Sort: #{bubble_time}
+  p Insertion Sort: #{insertion_time}
+  p Selection Sort: #{selection_time}
+
+  form(name="next", action="/start_On2", method="get")
+      input(type = "hidden", value = bubble_score, name = "bubble_total")
+      input(type = "hidden", value = insertion_score, name = "insertion_total")
+      input(type = "hidden", value = selection_score, name = "selection_total")
+      input(type = "hidden", value = amount, name = "amount")
+      input(type = "hidden", value = round, name="round")
+
+      input(type="submit", value="Next")
+
+  form(name="stop", action="/", method="get")
+    input(type="submit", value="Stop")
+
+  button(onclick='Reset()') Reset
+
+  script.
+      var Reset = function() {
+        location.reload();
+      }
+
+
+
+
+
+
+
+
