@@ -7,7 +7,7 @@ var quicksort = require('../On2/quicksort');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    console.log(req.query['quickmid_total']);
+    //console.log(req.query['quickmid_total']);
     var round = Number(req.query['round']);
 
     if (req.query['merge_total'] >= 15 || req.query['quickfront_total'] >= 15 || req.query['quickmid_total'] >= 15) {
@@ -35,18 +35,18 @@ router.get('/', function(req, res, next) {
     merge.data = merge_sort(merge);
     var mend = now();
     merge.time = mend-mstart;
-    console.log(merge.data);
-    console.log(merge.time);
+    //console.log(merge.data);
+    //console.log(merge.time);
     merge.score = 3;
 
-    console.log('quickfront sort');
-    console.log(quickfront.data);
+    //console.log('quickfront sort');
+    //console.log(quickfront.data);
     var qfstart = now();
     quickfront.data = quicksort(quickfront, 0);
     var qfend = now();
     quickfront.time = qfend - qfstart;
-    console.log(quickfront.time);
-    console.log(quickfront.data);
+    //console.log(quickfront.time);
+    //console.log(quickfront.data);
 
     if(quickfront.time<merge.time) {
         quickfront.score = 3;
@@ -56,13 +56,13 @@ router.get('/', function(req, res, next) {
         quickfront.score = 2;
     }
 
-    console.log('quickmid sort');
-    console.log(quickmid.data);
+    //console.log('quickmid sort');
+    //console.log(quickmid.data);
     var qmstart = now();
     quickmid.data = quicksort(quickmid, 1);
     var qmend = now();
     quickmid.time = qmend-qmstart;
-    console.log(quickmid.data);
+    //console.log(quickmid.data);
 
     if (quickmid.time > quickfront.time && quickmid.time > merge.time) {
         quickmid.score = 1;

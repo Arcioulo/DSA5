@@ -16,8 +16,8 @@ router.get('/', function(req, res, next) {
     }
 
 
-    console.log('bubblescore');
-    console.log(req.query['bubblescore']);
+    //console.log('bubblescore');
+    //console.log(req.query['bubblescore']);
     var size = req.query['amount'];
     var numbers = [];
 
@@ -29,22 +29,22 @@ router.get('/', function(req, res, next) {
     var selection = {data: numbers.slice(), total: Number(req.query['selection_total'])};
     var insertion = {data: numbers.slice(), total: Number(req.query['insertion_total'])};
 
-    console.log('bubble sort');
-    console.log(bubble.data);
+    //console.log('bubble sort');
+    //console.log(bubble.data);
     var bstart = now();
     bubble = bubble_sort(bubble);
     var bend = now();
     bubble.time = bend-bstart;
-    console.log(bubble.data);
+    //console.log(bubble.data);
     bubble.score = 3;
 
-    console.log('selection sort');
-    console.log(selection.data);
+    //console.log('selection sort');
+    //console.log(selection.data);
     var sstart = now();
     selection = selection_sort(selection);
     var send = now();
     selection.time = send - sstart;
-    console.log(selection.data);
+    //console.log(selection.data);
 
     if(selection.time<bubble.time) {
         selection.score = 3;
@@ -54,13 +54,13 @@ router.get('/', function(req, res, next) {
         selection.score = 2;
     }
 
-    console.log('insertion sort');
-    console.log(insertion.data);
+    //console.log('insertion sort');
+    //console.log(insertion.data);
     var istart = now();
     insertion = insertion_sort(insertion);
     var iend = now();
     insertion.time = iend-istart;
-    console.log(insertion.data);
+    //console.log(insertion.data);
 
     if (insertion.time > selection.time && insertion.time > bubble.time) {
         insertion.score = 1;
