@@ -21,8 +21,8 @@ router.get('/', function(req, res, next) {
     var size = req.query['amount'];
     var numbers = [];
 
-    while(numbers.length<(size/100)) {
-        numbers[numbers.length] = Math.floor((Math.random()*(size/10))+1); //Generates a random number over from 1 to the size selected
+    while(numbers.length<(size)) {
+        numbers[numbers.length] = Math.floor((Math.random()*(size))+1); //Generates a random number over from 1 to the size selected
     }
 
     var merge = {data: numbers.slice(), total: Number(req.query['merge_total'])};

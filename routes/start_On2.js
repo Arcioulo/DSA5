@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
     var size = req.query['amount'];
     var numbers = [];
 
-    while(numbers.length<(size/100)) {
+    while(numbers.length<(size)) {
         numbers[numbers.length] = Math.floor((Math.random()*size)+1); //Generates a random number over from 1 to the size selected
     }
 
